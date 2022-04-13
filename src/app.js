@@ -1,11 +1,11 @@
-const express =require('express')
-const routes = require ('./niveis/routes')
-// const niveis = require ('./niveis/routes')
+import express from'express'
+import db from'./config/dbConnect.js'
+import routes from'./routes/index.js'
 
+
+db.connect()
 const app = express()
-
 app.use(express.json())
-app.use(routes)
-// app.register(niveis, { prefix: '/niveis'})
+routes(app)
 
-module.exports = app
+export default app

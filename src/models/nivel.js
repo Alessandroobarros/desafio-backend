@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const NivelSchema = new mongoose.Schema(
   {
@@ -16,4 +16,4 @@ const NivelSchema = new mongoose.Schema(
 )
 const Nivel = mongoose.model('Nivel', NivelSchema)
 
-module.exports = Nivel
+export default Nivel

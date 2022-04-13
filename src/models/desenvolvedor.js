@@ -1,12 +1,19 @@
-const { Schema } = require('mongoose')
+import mongoose from 'mongoose'
 
-const DesenvolvedorSchema = new Schema(
+const DesenvolvedorSchema = new mongoose.Schema(
   {
-    id: { type: String },
-    nivel: { type: Number },
+    id: {
+      type: String,
+      unique: true
+    },
+    nivel: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Nivel',
+      required: true
+    },
     nome: { type: String },
     sexo: { type: String },
-    datanascimento: { type: Date },
+    datanascimento: Date,
     idade: { type: Number },
     hobby: { type: String }
   }
@@ -14,4 +21,4 @@ const DesenvolvedorSchema = new Schema(
 
 const Desenvolvedor = mongoose.model('Desenvolvedor', DesenvolvedorSchema)
 
-module.exports = Desenvolvedor
+export default Desenvolvedor

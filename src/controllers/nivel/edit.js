@@ -1,5 +1,4 @@
-const moment = require('moment')
-const Nivel = require('../../models/nivel')
+import Nivel from '../../models/nivel.js'
 
 const update = async (req, res) => {
   try {
@@ -22,10 +21,9 @@ const update = async (req, res) => {
 
     res.status(200).json({message: `Nivel alterado com sucesso! : ${response}`})
   } catch (error) {
-    console.log(error);
     return res.status(400).json({error: error})
   }
 }
 
 
-module.exports = update
+export default update
