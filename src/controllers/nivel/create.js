@@ -1,5 +1,5 @@
-const moment = require('moment')
-const Nivel = require('../../models/nivel')
+import moment from 'moment'
+import Nivel from '../../models/nivel.js'
 
 const create = async (req, res) => {
   try {
@@ -19,10 +19,9 @@ const create = async (req, res) => {
     const { _id } = response
     res.status(201).json({message: `Nivel criado com sucesso id: ${_id}`})
   } catch (error) {
-    console.log(error);
      return res.status(400).json({error: error})
   }
 }
 
-module.exports = create
+export default create
 

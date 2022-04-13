@@ -1,8 +1,9 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
 
+dotenv.config()
 const env = process.env
-
-module.exports = {
+const config = {
   DB_URI: env.DB_URI,
-  APP_PORT: env.APP_PORT
+  APP_PORT: env.APP_PORT || 3000
 }
+export default config

@@ -1,5 +1,4 @@
-const moment = require('moment')
-const Nivel = require('../../models/nivel')
+import Nivel from '../../models/nivel.js'
 
 const findAll = async (req, res) => {
  try {
@@ -7,7 +6,7 @@ const findAll = async (req, res) => {
 
     res.status(200).json(response)
   } catch (error) {
-    return res.code(500).send({
+    return res.code(400).send({
       message:
         'Falha na consulta de Nivel'
     })
@@ -15,4 +14,4 @@ const findAll = async (req, res) => {
 }
 
 
-module.exports = findAll
+export default findAll

@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Desafio",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "Alessandro",
   "license": "ISC",

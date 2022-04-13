@@ -1,10 +1,10 @@
-const mongooseInstance = require('mongoose')
+import mongoose from 'mongoose'
 
-const { DB_URI } = require('./env')
+import config from './env.js'
 
 const connect = () => {
   try{
-    mongooseInstance.connect(DB_URI, {
+    mongoose.connect(config.DB_URI, {
       useNewUrlParser: true,
       // useCreateIndex: true,
       useUnifiedTopology: true,
@@ -17,10 +17,6 @@ const connect = () => {
     console.log('Problema ao conectar no banco de dados', error)
   }
 }
-const disconnect = () => mongooseInstance.disconnect()
+const disconnect = () => mongoose.disconnect()
 
-module.exports = {
-  connect,
-  disconnect,
-  mongooseInstance
-}
+export default { connect, disconnect }

@@ -1,5 +1,5 @@
-const pino = require('pino')
+import pino from 'pino'
 
 const logger = pino({enable: true})
 
-module.exports = { logger }
+export default logger
