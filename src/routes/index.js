@@ -5,7 +5,7 @@ import desenvolvedores from './desenvolvedorRoutes.js'
 
 const routes = (app) => {
   app.route('/status').get((req,res) => {
-    res.status(200).send('Servidor rodando !!!!') // OK !!
+    res.status(200).send('Running server !!!!')
   })
 
   app.use(

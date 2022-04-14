@@ -7,7 +7,6 @@ const create = async (req, res) => {
     if(!dados){
       res.status(422).json({ error: 'Deve-se informar todos os campos' })
     }
-    // const { nivel } = dados
 
     const response = await Desenvolvedor.create(dados)
 
