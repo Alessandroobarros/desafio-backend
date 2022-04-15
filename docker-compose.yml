@@ -1,0 +1,12 @@
+version: "3"
+services:
+  api:
+    container_name: api-container
+    image: node:14
+    working_dir: /usr/desafio-backend
+    restart: always
+    command: bash -c "npm install --only=prod && npm start"
+    volumes:
+      - .:/usr/desafio-backend
+    ports:
+      - "3000:3000"
