@@ -18,11 +18,7 @@ const findByName = async (req, res) => {
   try {
     const { name } = req.params
 
-    console.log('Name', name);
-
     const response = await Nivel.findOne({ nivel: name })
-
-    console.log('RESPONSE', response);
 
     if(!response){
       return res.status(501).json({ error: 'Nem um cadastro foi encontrado para este nivel' })
