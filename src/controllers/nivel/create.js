@@ -1,12 +1,12 @@
 import moment from 'moment'
-import Nivel from '../../models/nivel.js'
+import niveisService from '../../services/nivel/index.js'
 
 const create = async (req, res) => {
   try {
     const dados = req.body
 
-    if(!dados){
-      res.status(422).json({ error: 'Deve-se informar as o nivel no body' })
+     if(Object.entries(dados).length === 0){
+      return res.status(422).json({ error: 'Necessario informar o nivel no body' })
     }
     const nivel = dados
 
@@ -14,7 +14,7 @@ const create = async (req, res) => {
 
     const nivelData = { ...nivel, dataCriacao}
 
-    const response = await Nivel.create(nivelData)
+    const response = await niveisService.create(nivelData)
 
     const { _id } = response
     res.status(201).json({message: `Nivel criado com sucesso id: ${_id}`})

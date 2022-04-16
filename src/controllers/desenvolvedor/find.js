@@ -1,8 +1,8 @@
-import Desenvolvedor from '../../models/desenvolvedor.js'
+import desenvolvedorServices from '../../services/desenvolvedor/index.js'
 
 const findAll = async (req, res) => {
   try {
-    const response = await Desenvolvedor.find().populate('nivel')
+    const response = await desenvolvedorServices.findAll()
 
     res.status(200).json(response)
   } catch (error) {
@@ -17,15 +17,14 @@ const findById = async (req, res) => {
   try {
     const { id } = req.params
 
-    const response = await Desenvolvedor.findOne({ _id: id }).populate('nivel')
-
+    const response = await desenvolvedorServices.findById(id)
     if(!response){
-      return res.status(501).json({ error: 'Nem um cadastro foi encontrado para este id' })
+      return res.status(400).json({ error: 'Não foi encontrado desenvolvedor cadastrado com este id' })
     }
 
     res.status(200).json(response)
   } catch (error) {
-    return res.status(400).json({
+    return res.status(404).json({
       message:
         'Falha na consulta de Desenvolvedor'
     })

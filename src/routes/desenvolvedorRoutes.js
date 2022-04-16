@@ -4,14 +4,14 @@ import desenvolvedorController from '../controllers/desenvolvedor/index.js'
 const router = express.Router()
 
 router
-.post('/desenvolvedor', desenvolvedorController.create) //Cadastrar um desenvolvedor
+.post('/desenvolvedor', desenvolvedorController.create)
 
-.get('/desenvolvedor', desenvolvedorController.findAll) //Listar desenvolvedor existente OK!!
+.get('/desenvolvedor', desenvolvedorController.findAll)
 
-.get('/desenvolvedor/:id', desenvolvedorController.findById) //Buscar desenvolvedor por id OK!!
+.get('/desenvolvedor/:id', desenvolvedorController.findById)
 
-.patch('/desenvolvedor/:id', desenvolvedorController.edit) //Editar um desenvolvedor
+.patch('/desenvolvedor/:id', desenvolvedorController.edit)
 
-.delete('/desenvolvedor/:id', desenvolvedorController.remove) //Remover um desenvolvedor
+.delete('/desenvolvedor/:id', desenvolvedorController.remove)
 
 export default router
