@@ -1,13 +1,13 @@
 import create from './create.js'
-import update from './edit.js'
+import edit from './edit.js'
 import { findAll, findById } from './find.js'
 import removeById from './remove.js'
 
-const niveisController = {
+const niveisService = {
   create,
-  update,
+  edit,
   findAll,
   findById,
   removeById
 }
-export default niveisController
+export default niveisService

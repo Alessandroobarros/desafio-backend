@@ -1,14 +1,14 @@
-import Desenvolvedor from '../../models/desenvolvedor.js'
+import desenvolvedorServices from "../../services/desenvolvedor/index.js"
 
 const create = async (req, res) => {
   try {
     const dados = req.body
 
-    if(!dados){
-      res.status(422).json({ error: 'Deve-se informar todos os campos' })
+    if(Object.entries(dados).length < 6){
+      return res.status(422).json({ error: 'Necessario informar todos os campos no body' })
     }
 
-    const response = await Desenvolvedor.create(dados)
+    const response = await desenvolvedorServices.create(dados)
 
     const { _id } = response
     res.status(201).json({message: `Desenvolvedor criado com sucesso id: ${_id}`})

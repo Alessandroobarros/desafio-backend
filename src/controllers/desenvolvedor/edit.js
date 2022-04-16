@@ -1,21 +1,20 @@
-import Desenvolvedor from '../../models/desenvolvedor.js'
-
+import desenvolvedorServices from '../../services/desenvolvedor/index.js'
 
 const edit = async (req, res) => {
   try {
     const dados = req.body
     const id = req.params.id
 
-    if(!dados){
-      throw res.status(422).json({ error: 'Necessario informar o campo a atualizar no body' })
+    if(Object.entries(dados).length === 0){
+      return res.status(422).json({ error: 'Necessario informar o campo a atualizar no body' })
     }
 
-    const desenvolvedorCadastrado = await Desenvolvedor.findOne({_id: id})
+    const desenvolvedorCadastrado = await desenvolvedorServices.findById(id)
     if(!desenvolvedorCadastrado){
-      throw res.status(400).json({ error: 'Não foi encontrado nivel cadastrado com este id' })
+      return res.status(400).json({ error: 'Não foi encontrado desenvolvedor cadastrado com este id' })
     }
 
-    await Desenvolvedor.findByIdAndUpdate(id, {$set: req.body})
+    await desenvolvedorServices.edit(id,dados)
 
     res.status(200).json({message: `Desenvolvedor atualizado com sucesso!`})
   } catch (error) {

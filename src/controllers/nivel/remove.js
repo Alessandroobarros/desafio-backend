@@ -1,5 +1,5 @@
-import Nivel from '../../models/nivel.js'
-import Desenvolvedor from '../../models/desenvolvedor.js'
+import niveisService from '../../services/nivel/index.js'
+import desenvolvedorService from '../../services/desenvolvedor/index.js'
 import mongoose from 'mongoose'
 
 const removeById = async (req, res) => {
@@ -12,24 +12,23 @@ const removeById = async (req, res) => {
       return res.status(422).json({ error: 'id invalido, informe um id valido!' })
     }
 
-    const nivelCadastrado = await Nivel.find({id})
-
+    const nivelCadastrado = await niveisService.findById(id)
     if(!nivelCadastrado){
       return res.status(400).json({ error: 'Não foi encontrado nivel cadastrado com este id' })
     }
 
-    const devNivel = await Desenvolvedor.find({nivel: id})
+    const devNivel = await desenvolvedorService.findByNivel(id)
 
-    if(devNivel.length > 0){
+    if(devNivel){
       return res.status(501).json({ error: 'Não foi possivel excluir o nivel pois existem desenvolvedores cadastrados nele' })
     }
 
-    await Nivel.deleteOne({_id: id})
+    const response = await niveisService.removeById(id)
 
-    res.status(200).json({message: `Nivel excluido com sucesso!`})
+    res.status(204).send()
   } catch (error) {
     return res.status(400).json({error: error})
   }
 }
-export default removeById
 
+export default removeById

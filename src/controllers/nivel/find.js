@@ -1,9 +1,8 @@
-import Nivel from '../../models/nivel.js'
-import config from '../../config/env.js'
+import niveisService from '../../services/nivel/index.js'
 
 const findAll = async (req, res) => {
  try {
-    const response = await Nivel.find().limit(config.LIMIT)
+    const response = await niveisService.findAll()
 
     res.status(200).json(response)
   } catch (error) {
@@ -14,23 +13,23 @@ const findAll = async (req, res) => {
   }
 }
 
-const findByName = async (req, res) => {
+const findById = async (req, res) => {
   try {
-    const { name } = req.params
+    const { id } = req.params
 
-    const response = await Nivel.findOne({ nivel: name })
+    const response = await niveisService.findById(id)
 
     if(!response){
-      return res.status(501).json({ error: 'Nem um cadastro foi encontrado para este nivel' })
+      return res.status(400).json({ error: 'Nem um cadastro foi encontrado para este id' })
     }
 
     res.status(200).json(response)
   } catch (error) {
-    return res.status(400).send({
+    return res.status(404).send({
       message:
         'Falha na consulta de Nivel'
     })
   }
 }
 
-export  { findAll, findByName }
+export  { findAll, findById }

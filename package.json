@@ -17,8 +17,7 @@
     "express": "^4.17.3",
     "moment": "^2.29.2",
     "mongodb": "^4.4.1",
-    "mongoose": "^6.2.9",
-    "pino": "^7.9.2"
+    "mongoose": "^6.2.9"
   },
   "repository": {
     "type": "git",
