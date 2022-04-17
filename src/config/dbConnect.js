@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import config from './env.js'
 
 const connect = () => {
+  console.log('CONECXÂO',config.DB_URI)
   try{
     mongoose.connect(config.DB_URI, {
       useNewUrlParser: true,
@@ -14,5 +15,6 @@ const connect = () => {
   }
 }
 const disconnect = () => mongoose.disconnect()
+const db = { connect, disconnect }
 
-export default { connect, disconnect }
+export default db
