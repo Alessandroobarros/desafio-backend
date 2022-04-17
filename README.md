@@ -240,7 +240,7 @@ Lista desenvolvedor por id:
 
 Editar um desenvolvedor (passar o campo desejado a alterar no json):
 ```
-  PUT /desenvolvedor/{id}
+  PATCH /desenvolvedor/{id}
 ```
 | Campos para alterar   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
@@ -298,15 +298,6 @@ Desenvolvido com as seguintes stacks:
 Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
 * **Desenvolvedor** - *backend* - [Alessandro Barros](https://github.com/Alessandroobarros)
-
-
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢
-* Convide alguém da equipe para uma cerveja 🍺
-* Obrigado publicamente 🤓.
-* etc.
 
 
 ---
