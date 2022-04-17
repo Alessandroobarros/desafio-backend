@@ -13,6 +13,8 @@
   "author": "Alessandro",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.17.9",
+    "@shelf/jest-mongodb": "^2.2.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "moment": "^2.29.2",
@@ -29,8 +31,11 @@
   },
   "homepage": "https://github.com/Alessandroobarros/desafio-backend#readme",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
     "eslint": "^8.13.0",
     "jest": "^27.4.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }
