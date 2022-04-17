@@ -274,10 +274,10 @@ Remover um Desenvolvedor:
     + No body
 
 ## ⚙️ Executando os testes
-Os testes cobrem as funcionalidades das rotas para desenvolvedor e nivel.
+Os testes são de integração cobrindo as funcionalidades das rotas para desenvolvedor e nivel.
 ```
 # Rodando os testes
-$ npm test
+$ npm run test
 
 ```
 
