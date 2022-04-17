@@ -38,7 +38,7 @@ http://localhost:3000/status
 ## 🔩 Utilizando a API
 
 ### Nível:
-Cadastrar:
+Cadastrar Nivel:
 ```
   POST /nivel
 ```
@@ -128,6 +128,8 @@ Editar um nivel:
             }
 
 Remover um nivel:
+
+*Obs: Não é possivel remover nivel que esteja sendo usado por algum desenvolvedor
 ```
   DEL /nivel/{id}
 ```

@@ -3,8 +3,7 @@ import mongoose from 'mongoose'
 const NivelSchema = new mongoose.Schema(
   {
     id: {
-      type: String,
-      unique: true
+      type: String
     },
     nivel: {
       type: String

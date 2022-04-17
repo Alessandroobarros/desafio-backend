@@ -1,9 +1,9 @@
 import supertest from "supertest"
 import app from "../../src/app.js"
 import db from "../../src/config/dbConnect.js"
-import desenvolvedorController from "../../src/controllers/desenvolvedor/index.js"
-import desenvolvedorServices from "../../src/services/desenvolvedor/index.js"
-
+// import desenvolvedorController from "../../src/controllers/desenvolvedor/index.js"
+// import desenvolvedorServices from "../../src/services/desenvolvedor/index.js"
+import Desenvolvedor from "../../src/models/desenvolvedor.js"
 const url = process.env.MONGO_URL
 
 const makeHttpRequest = () => ({
@@ -23,15 +23,23 @@ const makeHttpResponse = () => ({
 
 
 describe('statusCode 200', () => {
-  beforeAll(async () => {
+   beforeAll(async () => {
         db.connect(url)
+    })
+
+    beforeEach(async () => {
+        await Desenvolvedor.deleteMany()
+    })
+
+    afterAll( () => {
+        db.disconnect()
     })
 
    it('should return status 200 when registering a developer', async () => {
 
     await supertest(app)
           .post('./desenvolvedor')
-          .send({makeHttpRequest})
+          .send(makeHttpRequest())
           .expect(200)
   })
 })

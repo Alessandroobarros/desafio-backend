@@ -3,8 +3,7 @@ import mongoose from 'mongoose'
 const DesenvolvedorSchema = new mongoose.Schema(
   {
     id: {
-      type: String,
-      unique: true
+      type: String
     },
     nivel: {
       type: mongoose.Schema.Types.ObjectId,

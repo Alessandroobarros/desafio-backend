@@ -7,6 +7,3 @@ const edit = async (id, dados) => {
 }
 
 export default edit
-// await nivelCadastrado.updateOne({
-//       nivel: nivel
-//     })
