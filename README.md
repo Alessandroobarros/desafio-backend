@@ -297,7 +297,6 @@ Desenvolvido com as seguintes stacks:
 
 ## ✒️ Autor
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
 * **Desenvolvedor** - *backend* - [Alessandro Barros](https://github.com/Alessandroobarros)
 
