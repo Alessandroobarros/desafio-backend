@@ -4,7 +4,7 @@ import config from './env.js'
 
 const connect = () => {
   try{
-    mongoose.connect(config.DB_URI, {
+    mongoose.connect(config.NODE_ENV === 'test' ? global.__MONGO_URI__ : config.DB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
